@@ -1,30 +1,27 @@
 var app = app || {};
 
 (function () {
-	'use strict';
+  'use strict';
 
-	// Todo Router
-	// ----------
-	var ChoiceRouter = Backbone.Router.extend({
-		routes: {
-      '':          'root',
-			'result-1': 'result1',
+  var ChoiceRouter = Backbone.Router.extend({
+    routes: {
+      '':         'root',
+      'result-1': 'result1',
       'result-2': 'result2'
-		},
-
-    root: function() {
-      console.log('root');
     },
 
-		result1: function() {
-      console.log("1");
+    root: function() {
+    },
+
+    result1: function() {
+      new app.Result1View();
     },
 
     result2: function() {
-      console.log("2");
+      new app.Result2View();
     }
-	});
+  });
 
-	app.ChoiceRouter = new ChoiceRouter();
-	Backbone.history.start();
+  app.ChoiceRouter = new ChoiceRouter();
+  Backbone.history.start();
 })();
